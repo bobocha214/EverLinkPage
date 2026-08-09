@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <!-- EverLink 连接符号：透明背景，白色纯色填充/描边。
+       几何与 ic_launcher.svg 保持一致（参考 icon_foreground.png / ic_launcher_foreground.png），
+       双大圆节点 + 中心枢纽 + 连接连杆，符号整体居中偏内，避免被外层 25% 圆角裁切。
+       大圆 r=17 @67,67 / 124,124；中心节点 r=8.5 @95.5,95.5；连杆 stroke-width=6。 -->
+  <!-- 连接连杆：端点藏于大圆节点内，中段被中心节点覆盖 -->
+  <line x1="67" y1="67" x2="124" y2="124" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  <!-- 节点 -->
+  <g fill="#ffffff">
+    <circle cx="67" cy="67" r="17"/>
+    <circle cx="124" cy="124" r="17"/>
+    <circle cx="95.5" cy="95.5" r="8.5"/>
+  </g>
+</svg>

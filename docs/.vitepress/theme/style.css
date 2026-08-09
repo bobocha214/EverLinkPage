@@ -1,0 +1,179 @@
+/* =========================================================================
+   EverLink 官网主题 —— 参考 NexIoT 文档站风格
+   -------------------------------------------------------------------------
+   干净白底 / 深色默认背景 + 青绿品牌色 + 彩虹渐变 Hero 标题/图标光晕。
+   图标使用 ic_launcher.svg（实色 #00897B 圆角方块 + 白色连接符号）。
+   ========================================================================= */
+
+:root {
+  /* 品牌色：与 ic_launcher.png 的 #00897B 保持一致 */
+  --vp-c-brand-1: #00897B;
+  --vp-c-brand-2: #0d9488;
+  --vp-c-brand-3: #14b8a6;
+  --vp-c-brand-soft: rgba(0, 137, 123, 0.14);
+
+  /* 彩虹流动渐变：绿 → 青 → 蓝 → 靛 → 紫 → 粉 → 绿（首尾同色无缝循环） */
+  --el-rainbow: linear-gradient(115deg,
+    #34d399 0%,
+    #22d3ee 18%,
+    #38bdf8 36%,
+    #818cf8 54%,
+    #c084fc 70%,
+    #f472b6 86%,
+    #34d399 100%);
+
+  /* NexIoT 风格：标题彩虹文字 + 图标后方模糊彩虹光晕 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: var(--el-rainbow);
+  --vp-home-hero-image-background-image: var(--el-rainbow);
+  --vp-home-hero-image-filter: blur(70px);
+}
+
+@keyframes el-rainbow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* 全局背景：回归 VitePress 默认干净背景（浅色白 / 深色深灰），不再覆盖青绿光晕 */
+html {
+  background: var(--vp-c-bg);
+}
+
+/* 删除此前的 html/body 青绿 aurora 光晕伪元素，保持页面清爽 */
+html::before,
+html::after,
+body::before {
+  content: none;
+}
+
+/* ---- Hero 标题：彩虹渐变文字（参考 NexIoT） ---- */
+.VPHero .name {
+  color: transparent;
+  background: var(--vp-home-hero-name-background);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: el-rainbow 5s linear infinite;
+}
+
+.VPHero .text {
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+}
+
+.VPHero .tagline {
+  color: var(--vp-c-text-2);
+}
+
+/* ---- Hero 右侧图标：ic_launcher.svg（实色青绿圆角方块 + 白符号） ----
+   使用 VitePress 默认列位置，不再向右下平移；后方彩虹光晕由 .image::before 提供。 */
+.VPHero .image {
+  position: relative;
+  flex: none;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 往右下偏移：右移 200px、下移 84px */
+  transform: translate(200px, 84px);
+}
+
+/* 图标后方彩虹模糊光晕：NexIoT 同款效果，让图标更出彩 */
+.VPHero .image::before {
+  background-size: 200% auto;
+  animation: el-rainbow 6s linear infinite;
+}
+
+/* 去掉此前的轨道环与底部辉光 */
+.VPHero .image::after {
+  display: none;
+}
+
+.VPHero .image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 25%;
+  box-shadow: none;
+}
+
+/* ---- 按钮：青绿发光外沿 ---- */
+.VPHero .actions .VPButton {
+  box-shadow: 0 6px 22px -8px rgba(0, 137, 123, 0.32);
+}
+
+.VPHero .actions .VPButton:hover {
+  box-shadow: 0 10px 28px -6px rgba(0, 137, 123, 0.45);
+}
+
+/* ---- 特性卡片：干净白底 + 淡青绿描边 ---- */
+.VPFeature {
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 16%, transparent);
+  background: var(--vp-c-bg-soft);
+  border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px -8px rgba(0, 137, 123, 0.22);
+}
+
+/* ---- 正文文档卡片：轻微边框，减少存在感 ---- */
+.vp-doc {
+  background: var(--vp-c-bg);
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 10%, transparent);
+  border-radius: 12px;
+  padding: 28px 36px;
+}
+
+/* ---- 移动端导航菜单/抽屉：确保背景不透明，避免与内容重叠 ---- */
+.VPNavScreen,
+.VPSidebar {
+  background: var(--vp-c-bg) !important;
+}
+
+.VPNavBar {
+  background: color-mix(in srgb, var(--vp-c-bg) 88%, transparent) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ---- 手机端适配 ---- */
+@media (max-width: 960px) {
+  .VPHero .image {
+    width: 200px;
+    height: 200px;
+    margin: 28px auto 0;
+    transform: none;
+  }
+  .VPFeatures .container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .VPHero .image {
+    width: 160px;
+    height: 160px;
+  }
+  .VPFeature {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .VPHero .name  { font-size: 2.4rem; }
+  .VPHero .text  { font-size: 1.3rem; }
+  .VPHero .tagline { font-size: 0.95rem; }
+}
+
+/* 尊重用户的「减少动态效果」系统偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .VPHero .name,
+  .VPHero .image::before {
+    animation: none;
+  }
+}

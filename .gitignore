@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# VitePress build output
+docs/.vitepress/dist/
+
+# VitePress cache
+docs/.vitepress/cache/
+
+# VitePress temporary config files
+docs/.vitepress/config.mts.timestamp-*.mjs
+
+# VitePress temp verify directory
+docs/.vitepress/_verify/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/

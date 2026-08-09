@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <!-- EverLink 应用启动图标：1:1 参考 ic_launcher.png 还原。
+       实色青绿圆角方块（#00897B）+ 白色连接符号：
+       双大圆节点 (r=17 @67,67 / 124,124) + 中心节点 (r=8.5 @95.5) + 连接连杆 (width=6)。 -->
+  <rect x="0" y="0" width="192" height="192" rx="48" ry="48" fill="#00897B"/>
+  <!-- 连接连杆：端点藏于大圆节点内，中段被中心节点覆盖 -->
+  <line x1="67" y1="67" x2="124" y2="124" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  <!-- 节点 -->
+  <g fill="#ffffff">
+    <circle cx="67" cy="67" r="17"/>
+    <circle cx="124" cy="124" r="17"/>
+    <circle cx="95.5" cy="95.5" r="8.5"/>
+  </g>
+</svg>
