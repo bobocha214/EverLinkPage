@@ -51,13 +51,12 @@ export default defineConfig({
     },
 
     socialLinks: [
-      // TODO: 替换为你的实际仓库地址
-      { icon: 'github', link: 'https://github.com/everlink-app/EverLink' },
+      { icon: 'github', link: 'https://github.com/bobocha214/everlink' },
       {
         icon: {
           svg: '<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M6.5 19a4.75 4.75 0 0 1-.42-9.47 6 6 0 0 1 11.6-1.36A4.25 4.25 0 0 1 18 19h-11.5z"/></svg>',
         },
-        link: 'https://gitee.com/everlink-app/EverLink',
+        link: 'https://gitee.com/zhiyu_214/ever-link',
       },
     ],
 

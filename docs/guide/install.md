@@ -10,12 +10,29 @@ EverLink 目前以 Android APK 形式分发，支持 **GitHub** 与 **Gitee** �
 
 ## 从发布页下载
 
-前往你的发布仓库，下载带有 `EverLink-<版本号>.apk` 名称的安装包：
+前往你的发布仓库，选择适合设备 CPU 架构的 APK 下载：
 
-- GitHub Releases：`https://github.com/everlink-app/EverLink/releases`
-- Gitee Releases：`https://gitee.com/everlink-app/EverLink/releases`
+### Gitee（国内推荐）
 
-> 安装包命名格式为 `EverLink-1.0.0.apk`（通用包）或 `EverLink-1.0.0-arm64-v8a.apk` 等（按 CPU 架构拆分）。
+| 架构 | 适用设备 | 下载链接 |
+|------|----------|----------|
+| arm64-v8a | 现代 64 位安卓手机 / 平板（推荐） | [app-arm64-v8a-release.apk](https://gitee.com/zhiyu_214/ever-link/releases/download/1.0.0/app-arm64-v8a-release.apk) |
+| armeabi-v7a | 老旧 32 位安卓设备 | [app-armeabi-v7a-release.apk](https://gitee.com/zhiyu_214/ever-link/releases/download/1.0.0/app-armeabi-v7a-release.apk) |
+| x86_64 | x86 模拟器 / Intel 平板 | [app-x86_64-release.apk](https://gitee.com/zhiyu_214/ever-link/releases/download/1.0.0/app-x86_64-release.apk) |
+
+### GitHub
+
+| 架构 | 适用设备 | 下载链接 |
+|------|----------|----------|
+| arm64-v8a | 现代 64 位安卓手机 / 平板（推荐） | [app-arm64-v8a-release.apk](https://github.com/bobocha214/everlink/releases/download/1.0.0/app-arm64-v8a-release.apk) |
+| armeabi-v7a | 老旧 32 位安卓设备 | [app-armeabi-v7a-release.apk](https://github.com/bobocha214/everlink/releases/download/1.0.0/app-armeabi-v7a-release.apk) |
+| x86_64 | x86 模拟器 / Intel 平板 | [app-x86_64-release.apk](https://github.com/bobocha214/everlink/releases/download/1.0.0/app-x86_64-release.apk) |
+
+> 不确定设备架构？大多数 2019 年后的安卓手机均为 **arm64-v8a**，可直接下载推荐包。
+
+发布页地址：
+- GitHub Releases：`https://github.com/bobocha214/everlink/releases`
+- Gitee Releases：`https://gitee.com/zhiyu_214/ever-link/releases`
 
 下载完成后，用文件管理器打开 APK，按系统提示完成安装即可。
 
@@ -23,7 +40,7 @@ EverLink 目前以 Android APK 形式分发，支持 **GitHub** 与 **Gitee** �
 
 1. 打开 EverLink，进入 **我的 → 设置**。
 2. 在「检查更新」区域选择更新来源：**GitHub** 或 **Gitee**。
-3. 填写仓库坐标（`owner/repo`，例如 `everlink-app/EverLink`）。
+3. 填写仓库坐标（`owner/repo`，例如 `zhiyu_214/ever-link` 或 `bobocha214/everlink`）。
 4. 点击 **检查更新**。
    - 若发现新版本，会弹出更新对话框，点击 **下载更新** 即可在后台下载；
    - 下载完成后系统会自动弹出安装界面，按提示完成安装。
@@ -90,11 +107,11 @@ flutter pub get
 
 # 3) 打包 release APK（单包）
 flutter build apk --release
-#    产物：build/app/outputs/flutter-apk/EverLink-1.0.0.apk
+#    产物：build/app/outputs/flutter-apk/app-release.apk
 
 # 推荐：按 ABI 拆分，体积更小、国内下载更快
 flutter build apk --release --split-per-abi
-#    产物：EverLink-1.0.0-armeabi-v7a.apk / -arm64-v8a.apk / -x86_64.apk
+#    产物：app-armeabi-v7a-release.apk / app-arm64-v8a-release.apk / app-x86_64-release.apk
 ```
 
-发布时，到 GitHub / Gitee 创建 Release，Tag 填 `v1.0.0`（注意带 `v`），将生成的 `EverLink-1.0.0.apk` 作为资源上传。应用内的检查更新会自动对比该 Release 的版本号与 APK 下载地址。
+发布时，到 GitHub / Gitee 创建 Release，Tag 填 `1.0.0`，将生成的 APK 作为资源上传。应用内的检查更新会自动对比该 Release 的版本号与 APK 下载地址。

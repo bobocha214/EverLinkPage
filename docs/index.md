@@ -15,7 +15,7 @@ hero:
       link: /guide/quick-start
     - theme: alt
       text: 下载安装
-      link: /guide/install
+      link: https://gitee.com/zhiyu_214/ever-link/releases/download/1.0.0/app-arm64-v8a-release.apk
 
 features:
   - title: 多协议调试
