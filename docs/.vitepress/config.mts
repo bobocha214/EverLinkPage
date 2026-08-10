@@ -2,6 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  // GitHub Pages 部署：仓库名 EverLinkPage → base 路径
+  base: '/EverLinkPage/',
   title: 'EverLink',
   description: '工业设备协议调试与局域网工具箱 —— 支持 Modbus TCP / MQTT / WebSocket / HTTP / OPC UA，内置快传、Ping、网络调试与剪贴板管理。',
   lang: 'zh-CN',
