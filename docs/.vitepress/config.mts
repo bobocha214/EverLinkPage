@@ -37,6 +37,7 @@ export default defineConfig({
           text: '核心功能',
           items: [
             { text: '协议调试', link: '/guide/protocols' },
+            { text: '服务模拟', link: '/guide/server-simulation' },
             { text: '工具箱', link: '/guide/tools' },
             { text: '设置与主题', link: '/guide/settings' },
           ],

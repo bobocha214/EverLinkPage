@@ -10,31 +10,13 @@ EverLink 目前以 Android APK 形式分发，支持 **GitHub** 与 **Gitee** �
 
 ## 从发布页下载
 
-前往你的发布仓库，选择适合设备 CPU 架构的 APK 下载：
+选择适合设备 CPU 架构的 APK 下载。以下版本列表自动从 GitHub Release 同步，点击版本号可展开 / 收起下载选项：
 
-### Gitee（国内推荐）
-
-> 以下链接为 v1.0.0 版本，Gitee 暂不支持自动指向最新版本，新版发布后需手动更新。
-
-| 架构 | 适用设备 | 下载链接 |
-|------|----------|----------|
-| arm64-v8a | 现代 64 位安卓手机 / 平板（推荐） | [app-arm64-v8a-release.apk](https://gitee.com/zhiyu_214/ever-link/releases/download/1.0.0/app-arm64-v8a-release.apk) |
-| armeabi-v7a | 老旧 32 位安卓设备 | [app-armeabi-v7a-release.apk](https://gitee.com/zhiyu_214/ever-link/releases/download/1.0.0/app-armeabi-v7a-release.apk) |
-| x86_64 | x86 模拟器 / Intel 平板 | [app-x86_64-release.apk](https://gitee.com/zhiyu_214/ever-link/releases/download/1.0.0/app-x86_64-release.apk) |
-
-### GitHub（自动指向最新版本）
-
-> 以下链接通过 GitHub `releases/latest` 重定向，**始终自动指向最新 Release**，无需手动更新。
-
-| 架构 | 适用设备 | 下载链接 |
-|------|----------|----------|
-| arm64-v8a | 现代 64 位安卓手机 / 平板（推荐） | [app-arm64-v8a-release.apk](https://github.com/bobocha214/everlink/releases/latest/download/app-arm64-v8a-release.apk) |
-| armeabi-v7a | 老旧 32 位安卓设备 | [app-armeabi-v7a-release.apk](https://github.com/bobocha214/everlink/releases/latest/download/app-armeabi-v7a-release.apk) |
-| x86_64 | x86 模拟器 / Intel 平板 | [app-x86_64-release.apk](https://github.com/bobocha214/everlink/releases/latest/download/app-x86_64-release.apk) |
+<ReleaseDownloads />
 
 > 不确定设备架构？大多数 2019 年后的安卓手机均为 **arm64-v8a**，可直接下载推荐包。
 
-发布页地址：
+如果上方版本列表加载失败（GitHub API 速率限制），可直接前往发布页手动下载：
 - GitHub Releases：`https://github.com/bobocha214/everlink/releases`
 - Gitee Releases：`https://gitee.com/zhiyu_214/ever-link/releases`
 
@@ -117,5 +99,7 @@ flutter build apk --release
 flutter build apk --release --split-per-abi
 #    产物：app-armeabi-v7a-release.apk / app-arm64-v8a-release.apk / app-x86_64-release.apk
 ```
+
+> 注：部分第三方插件（如 `clipboard_watcher`）对 `compileSdk` 与 Java/Kotlin 目标版本有特定要求，构建遇到 JVM target 或 compileSdk 报错时，请确认本地 Android SDK platform 版本并按工程根 `build.gradle.kts` 的兜底配置调整。
 
 发布时，到 GitHub / Gitee 创建 Release，Tag 填 `1.0.0`，将生成的 APK 作为资源上传。应用内的检查更新会自动对比该 Release 的版本号与 APK 下载地址。
